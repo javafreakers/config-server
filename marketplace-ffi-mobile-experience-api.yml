@@ -1,0 +1,25 @@
+---
+info:
+  env: LOCAL
+
+logging:
+  config: config/logback-local.xml
+
+server:
+  port: 8080
+
+api:
+  security:
+    enabled: false
+    key: vLUwFIheJdp4Vm3ImaO484GaJlkjnB60
+
+#CDTOPortfolioDomainAPI
+cdto-portfolio-domain-api:
+  address:
+    base: https://api-nonprod.ext.sun/sys/portfolios/banks
+    transaction-summary: /transactions/v1/summary/monthly?bankAccounts={bankAccounts}&inclusiveStartDate={inclusiveStartDate}&inclusiveEndDate={inclusiveEndDate}&includeSubcategory=false&groupBy={groupBy}
+    liquid-financial-position: /liquidFinancialPosition/v1/retrieve?bankAccounts={bankAccounts}
+    health: /health
+  downtime:
+    enabled: false
+    period: "23:55:00-00:05:00 Australia/Sydney"
